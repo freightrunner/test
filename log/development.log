@@ -874,3 +874,58 @@ Started GET "/demo/hello" for ::1 at 2016-02-19 16:31:01 -0500
 Processing by DemoController#hello as HTML
   Rendered demo/hello.html.erb (1.0ms)
 Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/index" for ::1 at 2016-02-21 16:25:29 -0500
+Processing by DemoController#index as HTML
+  Rendered demo/index.html.erb (7.0ms)
+Completed 200 OK in 67ms (Views: 46.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/hello/20?page=5" for ::1 at 2016-02-21 16:25:32 -0500
+Processing by DemoController#hello as HTML
+  Parameters: {"page"=>"5", "id"=>"20"}
+  Rendered demo/hello.html.erb (1.0ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/hello/20?page=5" for ::1 at 2016-02-21 17:51:53 -0500
+Processing by DemoController#hello as HTML
+  Parameters: {"page"=>"5", "id"=>"20"}
+  Rendered demo/hello.html.erb (4.0ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/hello/20?page=5" for ::1 at 2016-02-21 17:52:18 -0500
+Processing by DemoController#hello as HTML
+  Parameters: {"page"=>"5", "id"=>"20"}
+  Rendered demo/hello.html.erb (1.5ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/hello/20?page=5" for ::1 at 2016-02-21 17:52:23 -0500
+Processing by DemoController#hello as HTML
+  Parameters: {"page"=>"5", "id"=>"20"}
+  Rendered demo/hello.html.erb (0.5ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/hello/20?page=5" for ::1 at 2016-02-21 17:52:49 -0500
+Processing by DemoController#hello as HTML
+  Parameters: {"page"=>"5", "id"=>"20"}
+  Rendered demo/hello.html.erb (1.0ms)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/hello/20?page=5" for ::1 at 2016-02-21 17:55:45 -0500
+Processing by DemoController#hello as HTML
+  Parameters: {"page"=>"5", "id"=>"20"}
+  Rendered demo/hello.html.erb (1.5ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/hello/20?page=5" for ::1 at 2016-02-21 17:57:13 -0500
+Processing by DemoController#hello as HTML
+  Parameters: {"page"=>"5", "id"=>"20"}
+  Rendered demo/hello.html.erb (1.5ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
