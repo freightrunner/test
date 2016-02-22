@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: faust214
+  username: simple_cms
+  password: secretpassword
   host: localhost
 
 development:
   <<: *default
-  database: #simple_cms_development
+  database: simple_cms_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
