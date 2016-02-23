@@ -1514,3 +1514,81 @@ WHERE fk.referenced_column_name is not null
   [1m[35m (0.5ms)[0m  BEGIN
   [1m[36mSQL (2.0ms)[0m  [1mDELETE FROM `pages` WHERE `pages`.`id` = 1[0m
   [1m[35m (12.0ms)[0m  COMMIT
+  [1m[36mSubject Load (8.6ms)[0m  [1mSELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 1 LIMIT 1[0m
+  [1m[35mPage Load (3.2ms)[0m  SELECT `pages`.* FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (9.9ms)[0m  INSERT INTO `pages` (`name`, `permalink`, `position`, `subject_id`, `created_at`, `updated_at`) VALUES ('First Page', 0, 1, 1, '2016-02-24 20:05:26', '2016-02-24 20:05:26')
+  [1m[36m (5.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO `pages` (`name`, `permalink`, `position`, `subject_id`, `created_at`, `updated_at`) VALUES ('Second Page', 0, 2, 1, '2016-02-24 20:07:32', '2016-02-24 20:07:32')[0m
+  [1m[35m (4.0ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.1ms)[0m  UPDATE `pages` SET `pages`.`subject_id` = NULL WHERE `pages`.`subject_id` = 1 AND `pages`.`id` = 3
+  [1m[36m (4.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (4.3ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1
+  [1m[36mActiveRecord::SchemaMigration Load (9.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateAdminUsersPagesJoin (20160223130437)
+  [1m[35m (61.0ms)[0m  CREATE TABLE `admin_users_pages` (`admin_user_id` int(11), `page_id` int(11)) ENGINE=InnoDB
+  [1m[36m (30.8ms)[0m  [1mCREATE  INDEX `index_admin_users_pages_on_admin_user_id_and_page_id`  ON `admin_users_pages` (`admin_user_id`, `page_id`) [0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160223130437')[0m
+  [1m[35m (8.1ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'admin_users'
+
+  [1m[36m (0.5ms)[0m  [1mSHOW CREATE TABLE `admin_users`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'admin_users_pages'
+
+  [1m[36m (0.5ms)[0m  [1mSHOW CREATE TABLE `admin_users_pages`[0m
+  [1m[35m (0.5ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'pages'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `pages`[0m
+  [1m[35m (0.5ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'sections'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `sections`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'subjects'
+
+  [1m[36m (0.5ms)[0m  [1mSHOW CREATE TABLE `subjects`[0m
+  [1m[36mPage Load (0.5ms)[0m  [1mSELECT  `pages`.* FROM `pages` WHERE `pages`.`id` = 2 LIMIT 1[0m
+  [1m[35mAdminUser Load (1.0ms)[0m  SELECT `admin_users`.* FROM `admin_users` INNER JOIN `admin_users_pages` ON `admin_users`.`id` = `admin_users_pages`.`admin_user_id` WHERE `admin_users_pages`.`page_id` = 2
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO `admin_users` (`first_name`, `last_name`, `username`, `created_at`, `updated_at`) VALUES ('Brian', 'Arpaio', 'barpaio', '2016-02-23 13:35:19', '2016-02-23 13:35:19')
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO `admin_users_pages` (`page_id`, `admin_user_id`) VALUES (2, 1)[0m
+  [1m[35m (2.6ms)[0m  COMMIT
