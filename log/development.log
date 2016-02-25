@@ -1592,3 +1592,88 @@ WHERE fk.referenced_column_name is not null
   [1m[35m (0.0ms)[0m  BEGIN
   [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO `admin_users_pages` (`page_id`, `admin_user_id`) VALUES (2, 1)[0m
   [1m[35m (2.6ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (20.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSectionEdits (20160225181339)
+  [1m[35m (87.2ms)[0m  CREATE TABLE `section_edits` (`id` int(11) auto_increment PRIMARY KEY, `admin_user_id` int(11), `section_id` int(11), `summary` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (41.0ms)[0m  [1mCREATE  INDEX `index_section_edits_on_admin_user_id_and_section_id`  ON `section_edits` (`admin_user_id`, `section_id`) [0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20160225181339')[0m
+  [1m[35m (9.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.5ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'admin_users'
+
+  [1m[36m (0.5ms)[0m  [1mSHOW CREATE TABLE `admin_users`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'admin_users_pages'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `admin_users_pages`[0m
+  [1m[35m (0.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'pages'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `pages`[0m
+  [1m[35m (0.5ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'section_edits'
+
+  [1m[36m (0.5ms)[0m  [1mSHOW CREATE TABLE `section_edits`[0m
+  [1m[35m (1.0ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'sections'
+
+  [1m[36m (0.5ms)[0m  [1mSHOW CREATE TABLE `sections`[0m
+  [1m[35m (0.5ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'simple_cms_development'
+  AND fk.table_name = 'subjects'
+
+  [1m[36m (0.0ms)[0m  [1mSHOW CREATE TABLE `subjects`[0m
+  [1m[36mAdminUser Load (3.5ms)[0m  [1mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSectionEdit Load (3.8ms)[0m  SELECT `section_edits`.* FROM `section_edits` WHERE `section_edits`.`admin_user_id` = 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO `sections` (`name`, `position`, `created_at`, `updated_at`) VALUES ('Section One', 1, '2016-02-25 19:08:22', '2016-02-25 19:08:22')
+  [1m[36m (15.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO `section_edits` (`summary`, `section_id`, `created_at`, `updated_at`) VALUES ('Test edit', 1, '2016-02-25 19:10:37', '2016-02-25 19:10:37')[0m
+  [1m[35m (16.8ms)[0m  COMMIT
+  [1m[36mSectionEdit Load (0.5ms)[0m  [1mSELECT `section_edits`.* FROM `section_edits` WHERE `section_edits`.`section_id` = 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (3.5ms)[0m  [1mUPDATE `section_edits` SET `created_at` = '2016-02-25 19:10:37', `updated_at` = '2016-02-25 19:10:37', `admin_user_id` = 1 WHERE `section_edits`.`id` = 1[0m
+  [1m[35m (13.0ms)[0m  COMMIT
+  [1m[36mSectionEdit Load (1.5ms)[0m  [1mSELECT `section_edits`.* FROM `section_edits` WHERE `section_edits`.`admin_user_id` = 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `section_edits` (`admin_user_id`, `section_id`, `summary`, `created_at`, `updated_at`) VALUES (1, 1, 'Ch-ch-ch-changes', '2016-02-25 19:14:41', '2016-02-25 19:14:41')[0m
+  [1m[35m (14.5ms)[0m  COMMIT
+  [1m[36mSectionEdit Load (1.5ms)[0m  [1mSELECT `section_edits`.* FROM `section_edits` WHERE `section_edits`.`admin_user_id` = 1[0m
