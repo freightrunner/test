@@ -1749,3 +1749,26 @@ Processing by SubjectsController#index as HTML
   [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 4[0m
   Rendered subjects/index.html.erb (15.6ms)
 Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/subjects/index" for ::1 at 2016-02-26 17:26:27 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (2.0ms)[0m  SELECT `subjects`.* FROM `subjects`  ORDER BY subjects.position ASC
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 4[0m
+  Rendered subjects/index.html.erb (82.7ms)
+Completed 200 OK in 143ms (Views: 107.9ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/subjects/new" for ::1 at 2016-02-26 17:26:29 -0500
+Processing by SubjectsController#new as HTML
+  Rendered subjects/new.html.erb (46.5ms)
+Completed 200 OK in 75ms (Views: 73.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects/new" for ::1 at 2016-02-26 17:27:58 -0500
+Processing by SubjectsController#new as HTML
+  Rendered subjects/new.html.erb (7.0ms)
+Completed 200 OK in 47ms (Views: 31.8ms | ActiveRecord: 1.5ms)
