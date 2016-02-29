@@ -2301,3 +2301,108 @@ Processing by PagesController#index as HTML
   [1m[36mPage Load (0.5ms)[0m  [1mSELECT `pages`.* FROM `pages`  ORDER BY pages.position ASC[0m
   Rendered pages/index.html.erb (6.5ms)
 Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subjects/index" for ::1 at 2016-02-29 16:10:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (4.0ms)[0m  SELECT `subjects`.* FROM `subjects`  ORDER BY subjects.position ASC
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 4[0m
+  Rendered subjects/index.html.erb within layouts/application (95.3ms)
+Completed 200 OK in 220ms (Views: 183.0ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/subjects" for ::1 at 2016-02-29 16:10:28 -0500
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (1.0ms)[0m  SELECT `subjects`.* FROM `subjects`  ORDER BY subjects.position ASC
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 4[0m
+  Rendered subjects/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 70ms (Views: 66.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-02-29 16:18:47 -0500
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (2.0ms)[0m  SELECT `subjects`.* FROM `subjects`  ORDER BY subjects.position ASC
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 4[0m
+  Rendered subjects/index.html.erb within layouts/admin (50.0ms)
+Completed 200 OK in 131ms (Views: 105.3ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/subjects/edit?id=2" for ::1 at 2016-02-29 16:34:55 -0500
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (2.0ms)[0m  SELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1
+  Rendered subjects/edit.html.erb within layouts/admin (47.8ms)
+Completed 200 OK in 159ms (Views: 99.4ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/subjects/update/2" for ::1 at 2016-02-29 16:35:09 -0500
+Processing by SubjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GFzZdm43MjpjJNG/UMC8POCU1R5uQcGYcNtqKOGpPD3ll1eV0LleWzyeXFZPHP9HsB5+KjNe9Nn6NydBmBtOYg==", "subject"=>{"name"=>"Revised Subject", "position"=>"2", "visible"=>"false"}, "commit"=>"Update Subject", "id"=>"2"}
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (6.5ms)[0m  [1mUPDATE `subjects` SET `name` = 'Revised Subject', `visible` = 0, `updated_at` = '2016-02-29 21:35:09' WHERE `subjects`.`id` = 2[0m
+  [1m[35m (5.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/subjects/show?id=2
+Completed 302 Found in 49ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/subjects/show?id=2" for ::1 at 2016-02-29 16:35:09 -0500
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  Rendered subjects/show.html.erb within layouts/admin (4.0ms)
+Completed 200 OK in 106ms (Views: 101.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subjects/index" for ::1 at 2016-02-29 16:35:11 -0500
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (1.0ms)[0m  SELECT `subjects`.* FROM `subjects`  ORDER BY subjects.position ASC
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 4[0m
+  Rendered subjects/index.html.erb within layouts/admin (18.0ms)
+Completed 200 OK in 61ms (Views: 56.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/subjects/edit?id=2" for ::1 at 2016-02-29 16:35:13 -0500
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (0.5ms)[0m  SELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1
+  Rendered subjects/edit.html.erb within layouts/admin (1.5ms)
+Completed 200 OK in 46ms (Views: 43.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/subjects/update/2" for ::1 at 2016-02-29 16:35:18 -0500
+Processing by SubjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zo+RdrwfKncNklwb84xMpeGVyZ77J7EPhPmZM61V9PCbRB+VApFGFlIo0fLsUA/esR9iqqY4hE4OFdRa1OeGrw==", "subject"=>{"name"=>"Revised Subject", "position"=>"2", "visible"=>"true"}, "commit"=>"Update Subject", "id"=>"2"}
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE `subjects` SET `visible` = 1, `updated_at` = '2016-02-29 21:35:18' WHERE `subjects`.`id` = 2[0m
+  [1m[35m (10.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/subjects/show?id=2
+Completed 302 Found in 21ms (ActiveRecord: 12.1ms)
+
+
+Started GET "/subjects/show?id=2" for ::1 at 2016-02-29 16:35:18 -0500
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSubject Load (0.5ms)[0m  [1mSELECT  `subjects`.* FROM `subjects` WHERE `subjects`.`id` = 2 LIMIT 1[0m
+  Rendered subjects/show.html.erb within layouts/admin (0.5ms)
+Completed 200 OK in 42ms (Views: 39.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subjects/index" for ::1 at 2016-02-29 16:35:20 -0500
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (0.5ms)[0m  SELECT `subjects`.* FROM `subjects`  ORDER BY subjects.position ASC
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 4[0m
+  Rendered subjects/index.html.erb within layouts/admin (15.1ms)
+Completed 200 OK in 57ms (Views: 54.1ms | ActiveRecord: 1.5ms)
