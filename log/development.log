@@ -2083,3 +2083,221 @@ Processing by SubjectsController#index as HTML
   [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 4[0m
   Rendered subjects/index.html.erb (12.2ms)
 Completed 200 OK in 35ms (Views: 32.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects/index" for 127.0.0.1 at 2016-02-29 14:41:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (3.6ms)[0m  SELECT `subjects`.* FROM `subjects`  ORDER BY subjects.position ASC
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 2
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `pages` WHERE `pages`.`subject_id` = 4[0m
+  Rendered subjects/index.html.erb (97.2ms)
+Completed 200 OK in 172ms (Views: 125.8ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/sections/index" for 127.0.0.1 at 2016-02-29 14:41:16 -0500
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (20.0ms)[0m  SELECT `sections`.* FROM `sections`  ORDER BY sections.order ASC
+  Rendered sections/index.html.erb within layouts/application (57.0ms)
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 20.0ms)
+
+ActionView::Template::Error (Mysql2::Error: Unknown column 'sections.order' in 'order clause': SELECT `sections`.* FROM `sections`  ORDER BY sections.order ASC):
+    18: 			<th>Content</th>
+    19: 			<th>Actions</th>
+    20: 		</tr>
+    21: 		<% @sections.each do |section| %>
+    22: 		<tr>
+    23: 			<td><%= section.position %></td>
+    24: 			<td><%= section.name %></td>
+  app/views/sections/index.html.erb:21:in `_app_views_sections_index_html_erb___2094425896_74204440'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1253.6ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (1264.9ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (2763.5ms)
+
+
+Started GET "/sections/index" for ::1 at 2016-02-29 14:42:42 -0500
+Processing by SectionsController#index as HTML
+  [1m[36mSection Load (2.0ms)[0m  [1mSELECT `sections`.* FROM `sections`  ORDER BY sections.position ASC[0m
+  Rendered sections/index.html.erb within layouts/application (21.4ms)
+Completed 500 Internal Server Error in 4396ms (ActiveRecord: 5.4ms)
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method):
+    2: <html>
+    3: <head>
+    4:   <title>SimpleCms</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__983633114_74191240'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1227.2ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (1433.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (3144.8ms)
+
+
+Started GET "/sections/index" for ::1 at 2016-02-29 14:43:42 -0500
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (2.5ms)[0m  SELECT `sections`.* FROM `sections`  ORDER BY sections.position ASC
+  Rendered sections/index.html.erb (32.0ms)
+Completed 200 OK in 113ms (Views: 77.1ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/sections/show?id=1" for ::1 at 2016-02-29 14:43:55 -0500
+Processing by SectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSection Load (0.5ms)[0m  [1mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  Rendered sections/show.html.erb (1.5ms)
+Completed 200 OK in 53ms (Views: 24.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sections/index" for ::1 at 2016-02-29 14:43:57 -0500
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (0.0ms)[0m  SELECT `sections`.* FROM `sections`  ORDER BY sections.position ASC
+  Rendered sections/index.html.erb (3.5ms)
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sections/edit?id=1" for ::1 at 2016-02-29 14:43:58 -0500
+Processing by SectionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSection Load (0.5ms)[0m  [1mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  Rendered sections/edit.html.erb (31.3ms)
+Completed 200 OK in 61ms (Views: 56.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sections/index" for ::1 at 2016-02-29 14:44:00 -0500
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (0.5ms)[0m  SELECT `sections`.* FROM `sections`  ORDER BY sections.position ASC
+  Rendered sections/index.html.erb (4.0ms)
+Completed 200 OK in 35ms (Views: 32.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sections/delete?id=1" for ::1 at 2016-02-29 14:44:01 -0500
+Processing by SectionsController#delete as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSection Load (0.5ms)[0m  [1mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  Rendered sections/delete.html.erb (2.0ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sections/index" for ::1 at 2016-02-29 14:44:03 -0500
+Processing by SectionsController#index as HTML
+  [1m[35mSection Load (0.5ms)[0m  SELECT `sections`.* FROM `sections`  ORDER BY sections.position ASC
+  Rendered sections/index.html.erb (4.0ms)
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sections/new" for ::1 at 2016-02-29 14:44:03 -0500
+Processing by SectionsController#new as HTML
+  Rendered sections/new.html.erb (2.0ms)
+Completed 200 OK in 37ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sections/index" for ::1 at 2016-02-29 14:44:07 -0500
+Processing by SectionsController#index as HTML
+  [1m[36mSection Load (1.0ms)[0m  [1mSELECT `sections`.* FROM `sections`  ORDER BY sections.position ASC[0m
+  Rendered sections/index.html.erb (6.0ms)
+Completed 200 OK in 35ms (Views: 32.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages/index" for ::1 at 2016-02-29 14:44:13 -0500
+Processing by PagesController#index as HTML
+  [1m[35mPage Load (2.0ms)[0m  SELECT `pages`.* FROM `pages`  ORDER BY pages.position ASC
+  Rendered pages/index.html.erb (22.0ms)
+Completed 200 OK in 75ms (Views: 58.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/pages/show?id=2" for ::1 at 2016-02-29 14:44:16 -0500
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.5ms)[0m  [1mSELECT  `pages`.* FROM `pages` WHERE `pages`.`id` = 2 LIMIT 1[0m
+  Rendered pages/show.html.erb (2.1ms)
+Completed 200 OK in 29ms (Views: 24.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pages/index" for ::1 at 2016-02-29 14:44:17 -0500
+Processing by PagesController#index as HTML
+  [1m[35mPage Load (0.5ms)[0m  SELECT `pages`.* FROM `pages`  ORDER BY pages.position ASC
+  Rendered pages/index.html.erb (5.0ms)
+Completed 200 OK in 41ms (Views: 38.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pages/edit?id=2" for ::1 at 2016-02-29 14:44:18 -0500
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.5ms)[0m  [1mSELECT  `pages`.* FROM `pages` WHERE `pages`.`id` = 2 LIMIT 1[0m
+  Rendered pages/edit.html.erb (2.5ms)
+Completed 200 OK in 30ms (Views: 25.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pages/index" for ::1 at 2016-02-29 14:44:19 -0500
+Processing by PagesController#index as HTML
+  [1m[35mPage Load (0.5ms)[0m  SELECT `pages`.* FROM `pages`  ORDER BY pages.position ASC
+  Rendered pages/index.html.erb (6.0ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pages/delete?id=2" for ::1 at 2016-02-29 14:44:20 -0500
+Processing by PagesController#delete as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.5ms)[0m  [1mSELECT  `pages`.* FROM `pages` WHERE `pages`.`id` = 2 LIMIT 1[0m
+  Rendered pages/delete.html.erb (2.0ms)
+Completed 200 OK in 31ms (Views: 25.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pages/index" for ::1 at 2016-02-29 14:44:22 -0500
+Processing by PagesController#index as HTML
+  [1m[35mPage Load (0.5ms)[0m  SELECT `pages`.* FROM `pages`  ORDER BY pages.position ASC
+  Rendered pages/index.html.erb (4.9ms)
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pages/new" for ::1 at 2016-02-29 14:44:23 -0500
+Processing by PagesController#new as HTML
+  Rendered pages/new.html.erb (2.0ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/index" for ::1 at 2016-02-29 14:44:24 -0500
+Processing by PagesController#index as HTML
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT `pages`.* FROM `pages`  ORDER BY pages.position ASC[0m
+  Rendered pages/index.html.erb (6.0ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages/edit?id=2" for ::1 at 2016-02-29 14:44:27 -0500
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPage Load (0.5ms)[0m  SELECT  `pages`.* FROM `pages` WHERE `pages`.`id` = 2 LIMIT 1
+  Rendered pages/edit.html.erb (1.5ms)
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pages/index" for ::1 at 2016-02-29 14:44:29 -0500
+Processing by PagesController#index as HTML
+  [1m[36mPage Load (0.5ms)[0m  [1mSELECT `pages`.* FROM `pages`  ORDER BY pages.position ASC[0m
+  Rendered pages/index.html.erb (6.5ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.5ms)
