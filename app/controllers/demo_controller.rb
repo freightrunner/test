@@ -20,4 +20,8 @@ layout false
   	redirect_to("http://lynda.com")
   end
 
+  def text_helpers
+    
+  end
+
 end
