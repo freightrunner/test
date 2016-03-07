@@ -9,6 +9,10 @@
 			<td><%= @page.name %></td>
 		</tr>
 		<tr>
+			<th>Subject</th>
+			<td><%= @page.subject.name if @page.subject %></td>
+		</tr>
+		<tr>
 			<th>Position</th>
 			<td><%= @page.position %></td>
 		</tr>
