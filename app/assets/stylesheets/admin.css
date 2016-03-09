@@ -52,9 +52,9 @@ span.status.true  { background: green; color: green; }
 span.status.false { background: red; color: red; }
 
 /* Errors */
-.fieldWithErrors { }
-.fieldWithErrors label { color: #AA0000; }
-.fieldWithErrors input { }
+.field_with_errors { }
+.field_with_errors label { color: #AA0000; }
+.field_with_errors input { border: 1px, solid #AA0000;}
 #errorExplanation { width: 400px; padding: 0; margin: 0 auto 1.5em;
   border: 1px solid #AA0000; background-color: #FFFFFF; font-size: 12px; }
 #errorExplanation h2 { font-weight: bold; font-size: 12px;

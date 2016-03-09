@@ -1,3 +1,5 @@
+<%= error_messages_for(@subject) %>
+
 <table summary="Subject from fields">
 	<tr>
 		<th><%= f.label(:name, "Your Name") %></th>
@@ -10,5 +12,9 @@
 	<tr>
 		<th><%= f.label(:visible) %></th>
 		<td><%= f.check_box(:visible) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:created_at) %></th>
+		<td><%= f.datetime_select(:created_at) %></td>
 	</tr>
 </table>
