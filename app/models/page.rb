@@ -12,7 +12,7 @@ class Page < ActiveRecord::Base
 
 	scope :visible, lambda {where(:visible => true)}
 	scope :invisible, lambda {where(:visible => false)}
-	scope :sorted, lambda {order{"pages.position ASC"}}
+	scope :sorted, lambda {order("pages.position ASC")}
 	scope :newest_first, lambda {order("pages.created_at DESC")}
 
 
