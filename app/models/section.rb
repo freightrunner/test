@@ -4,6 +4,10 @@ class Section < ActiveRecord::Base
 	has_many :section_edits
 	has_many :editors, :through => :section_edits, :class_name => "AdminUser"
 
+	acts_as_list :scope => :page
+
+	after_save :touch_page
+
 	CONTENT_TYPES = ['text', 'html']
 
 	validates_presence_of :name 
@@ -15,5 +19,13 @@ class Section < ActiveRecord::Base
 	scope :invisible, lambda {where(:visible => false)}
 	scope :sorted, lambda {order("sections.position ASC")}
 	scope :newest_first, lambda {order("sections.created_at DESC")}
+
+	private
+
+		def touch_page
+			# touch is similar to:
+			# page.update_attribute(:updated_at, Time.now)
+			page.touch
+		end
 
 end
